@@ -87,14 +87,11 @@
     <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
   </div>
 
-  <!-- Audio Player -->
-  <audio id="bg-music" autoplay loop>
-    <source src="UNAVERAGE GANG - WOLF CREEK (Feat. SCHIZO) (Official Music Video).mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Background Audio -->
+  <audio id="backgroundAudio" src="https://r2.gangmonkeys.com/gangmonkeys/Roi.ogg" loop autoplay></audio>
 
   <script>
-    const audio = document.getElementById("bg-music");
+    const audio = document.getElementById("backgroundAudio");
     const volumeSlider = document.getElementById("volume");
 
     // Set initial volume
