@@ -41,14 +41,26 @@
     }
 
     .container {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 50px; /* space between sections */
       width: 90%;
-      max-width: 1200px;
+      max-width: 800px;
       padding: 20px;
-      align-content: center;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .column h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #ff99ff;
+      text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
     }
 
     .box {
@@ -68,20 +80,20 @@
       cursor: pointer;
     }
 
-    .rainbow-box {
+    .gradient-box {
       background: linear-gradient(270deg, #ff0080, #7928ca, #00ffff, #ff9900, #ff0080);
       background-size: 600% 600%;
-      border: 3px solid #3d005e;
-      animation: rainbowShift 6s ease infinite;
       border-radius: 15px;
       padding: 30px;
       text-align: center;
       font-size: 1.3rem;
       font-weight: bold;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      border: 3px solid #3d005e;
+      animation: slowGradient 12s ease infinite;
     }
 
-    @keyframes rainbowShift {
+    @keyframes slowGradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -125,16 +137,26 @@
 </head>
 <body>
   <h1>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</h1>
- <div class="container">
-  <div class="gradient-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
-  <div class="gradient-box">1𝙅𝙖𝙮𝙮_</div>
-  <div class="gradient-box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
-  <div class="gradient-box">𝙎𝙘𝙖𝙢𝙒𝙞𝙨𝙚</div>
-  <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
-  <div class="box">𝙑1</div>
-  <div class="box">𝙍𝙚𝙖𝙥𝙚𝙧</div>
-  <div class="box">𝙕𝙞𝙜𝙜𝙞𝙩</div>
-</div>
+
+  <div class="container">
+    <!-- Devs Section -->
+    <div class="column">
+      <h2>Devs</h2>
+      <div class="gradient-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+      <div class="gradient-box">1𝙅𝙖𝙮𝙮_</div>
+      <div class="gradient-box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
+      <div class="gradient-box">𝙎𝙘𝙖𝙢𝙒𝙞𝙨𝙚</div>
+    </div>
+
+    <!-- Others Section -->
+    <div class="column">
+      <h2>Others</h2>
+      <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
+      <div class="box">𝙑1</div>
+      <div class="box">𝙍𝙚𝙖𝙥𝙚𝙧</div>
+      <div class="box">𝙕𝙞𝙜𝙜𝙞𝙩</div>
+    </div>
+  </div>
 
   <!-- Music -->
   <audio id="bg-music" loop muted>
@@ -148,24 +170,20 @@
     const audio = document.getElementById('bg-music');
     const slider = document.getElementById('volume-slider');
 
-    // Try to play audio (some browsers require a user interaction)
     function startAudio() {
-      audio.muted = false; // unmute when user interacts
+      audio.muted = false;
       audio.volume = slider.value;
       audio.play().catch(() => {
         console.log('Autoplay blocked. Slide the volume to start music.');
       });
     }
 
-    // User interaction triggers audio start
     slider.addEventListener('input', () => {
       startAudio();
       audio.volume = slider.value;
     });
 
-    // Optional: click anywhere to start audio
     document.body.addEventListener('click', () => startAudio(), { once: true });
   </script>
 </body>
 </html>
-
