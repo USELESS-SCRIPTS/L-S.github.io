@@ -18,9 +18,30 @@
 
     h1 {
       margin: 20px 0;
-      font-size: 2.5rem;
-      color: #cfa9ff;
+      font-size: 2.8rem;
       text-align: center;
+
+      /* Animated gradient text */
+      background: linear-gradient(270deg, #ff4dff, #7a00ff, #00ffe1, #ff66cc);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 12s ease infinite, wobble 5s ease-in-out infinite;
+    }
+
+    /* Gradient animation */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Wobble animation */
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      50% { transform: rotate(-2deg); }
+      75% { transform: rotate(2deg); }
     }
 
     .container {
@@ -34,6 +55,7 @@
       align-content: center;
     }
 
+    /* Default purple box */
     .box {
       background-color: #3d005e;
       border-radius: 15px;
@@ -51,23 +73,56 @@
       cursor: pointer;
     }
 
-    /* Rainbow special box */
+    /* Animated Rainbow special box */
     .rainbow-box {
-      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-      background-size: 400% 400%;
-      animation: rainbow 8s ease infinite;
-      color: white;
+      background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 1400% 1400%;
+      border: 3px solid #3d005e; /* purple outline */
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(207, 169, 255, 0.8);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: rainbowShift 10s ease infinite;
     }
 
-    @keyframes rainbow {
+    .rainbow-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+
+    @keyframes rainbowShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    /* Gradient special boxes */
+    .gradient-box {
+      background: linear-gradient(135deg, #7a00ff, #00bfff, #ff66cc);
+      border: 3px solid #3d005e;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 0 20px rgba(207, 169, 255, 0.8);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .gradient-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+    }
+
     /* Footer Section */
     footer {
-      margin-top: 200px; /* pushes footer down so you scroll */
+      margin-top: 200px;
       padding: 40px;
       background-color: #21002a;
       width: 100%;
@@ -90,28 +145,80 @@
       background-color: #5b0090;
       transform: scale(1.05);
     }
+
+    /* Volume tab styling */
+    #volumeTab {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #3d005e;
+      padding: 15px;
+      border-radius: 10px 0 0 10px;
+      box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.6);
+      color: #cfa9ff;
+      font-weight: bold;
+      text-align: center;
+      z-index: 999;
+    }
+
+    #volumeSlider {
+      width: 120px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <h1>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</h1>
+  <h1>Liksva-Syndicate</h1>
   <div class="container">
-    <div class="box rainbow-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+    <div class="rainbow-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+    <div class="gradient-box">1𝙅𝙖𝙮𝙮_</div>
+    <div class="gradient-box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
+    <div class="gradient-box">𝙎𝙘𝙖𝙢𝙒𝙞𝙨𝙚</div>
     <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
     <div class="box">𝙑1</div>
-    <div class="box">1𝙅𝙖𝙮𝙮_</div>
-    <div class="box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
     <div class="box">𝙍𝙚𝙖𝙥𝙚𝙧</div>
     <div class="box">𝙕𝙞𝙜𝙜𝙞𝙩</div>
   </div>
 
-  <!-- Background Audio (Royalty-Free) -->
-  <audio id="backgroundAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_34b88fcb9a.mp3?filename=future-bass-117119.mp3" loop autoplay></audio>
+  <!-- Background Audio -->
+  <audio id="backgroundAudio" autoplay loop>
+    <source src="67mangomason.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  <!-- Footer with Discord Links -->
+  <!-- Volume Control Tab -->
+  <div id="volumeTab">
+    <label for="volumeSlider">🔊 Volume</label><br>
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+  </div>
+
+  <!-- Footer -->
   <footer>
     <h2>Join our Discord Communities</h2>
     <a href="https://discord.gg/9VTqzgbhe8" target="_blank">Discord Server 1</a>
     <a href="https://discord.gg/Bf47NJtarZ" target="_blank">Discord Server 2</a>
   </footer>
+
+  <script>
+    const audio = document.getElementById('backgroundAudio');
+    const volumeSlider = document.getElementById('volumeSlider');
+
+    // Default volume
+    audio.volume = 1.0;
+
+    // Update volume when slider moves
+    volumeSlider.addEventListener('input', () => {
+      audio.volume = volumeSlider.value;
+    });
+
+    // Try to play audio (bypass autoplay restrictions with user interaction)
+    document.body.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+      }
+    }, { once: true });
+  </script>
 </body>
 </html>
