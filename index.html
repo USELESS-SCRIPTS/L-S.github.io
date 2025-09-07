@@ -59,8 +59,17 @@
       text-align: center;
       margin-bottom: 20px;
       font-size: 1.8rem;
-      color: #ff99ff;
-      text-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .sped-corner h2 {
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #ff9900, #ff00ff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 10s ease infinite;
     }
 
     .box {
@@ -72,12 +81,12 @@
       font-weight: bold;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
       transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
 
     .box:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-      cursor: pointer;
     }
 
     .gradient-box {
@@ -91,6 +100,7 @@
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
       border: 3px solid #3d005e;
       animation: slowGradient 12s ease infinite;
+      cursor: pointer;
     }
 
     @keyframes slowGradient {
@@ -142,23 +152,28 @@
     <!-- Devs Section -->
     <div class="column">
       <h2>Devs</h2>
-      <div class="gradient-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+      <div class="gradient-box" id="liksva-owner">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
       <div class="gradient-box">1𝙅𝙖𝙮𝙮_</div>
       <div class="gradient-box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
       <div class="gradient-box">𝙎𝙘𝙖𝙢𝙒𝙞𝙨𝙚</div>
     </div>
 
-    <!-- Others Section -->
+    <!-- Members Section -->
     <div class="column">
-      <h2>Others</h2>
+      <h2>Members</h2>
       <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
       <div class="box">𝙑1</div>
       <div class="box">𝙍𝙚𝙖𝙥𝙚𝙧</div>
-      <div class="box">𝙕𝙞𝙜𝙜𝙞𝙩</div>
+    </div>
+
+    <!-- The Sped Corner Section -->
+    <div class="column sped-corner">
+      <h2>The Sped Corner</h2>
+      <div class="box" id="ziggit">𝙕𝙞𝙜𝙜𝙞𝙩</div>
     </div>
   </div>
 
-  <!-- Music -->
+  <!-- Background Music -->
   <audio id="bg-music" loop muted>
     <source src="67mangomason.mp3" type="audio/mpeg">
   </audio>
@@ -184,6 +199,26 @@
     });
 
     document.body.addEventListener('click', () => startAudio(), { once: true });
+
+    // Clicking Liksva-Owner replaces background music
+    const liksvaBox = document.getElementById('liksva-owner');
+    liksvaBox.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'Mangomason671.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
+
+    // Clicking Ziggit replaces background music
+    const ziggitBox = document.getElementById('ziggit');
+    ziggitBox.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'Sigma6767.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
   </script>
 </body>
 </html>
