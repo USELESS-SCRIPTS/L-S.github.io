@@ -51,26 +51,35 @@
       cursor: pointer;
     }
 
-    /* Volume Box Styling */
-    .volume-box {
-      margin: 20px;
-      background-color: #3d005e;
-      border-radius: 15px;
-      padding: 20px 30px;
+    /* Footer Section */
+    footer {
+      margin-top: 200px; /* pushes footer down so you scroll */
+      padding: 40px;
+      background-color: #21002a;
+      width: 100%;
       text-align: center;
-      font-size: 1.2rem;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
 
-    input[type="range"] {
-      width: 250px;
-      margin-top: 10px;
-      cursor: pointer;
+    footer a {
+      display: inline-block;
+      margin: 10px 20px;
+      padding: 12px 25px;
+      background-color: #3d005e;
+      color: #cfa9ff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    footer a:hover {
+      background-color: #5b0090;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <h1>Liksva-Syndicate</h1>
+  <h1>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</h1>
   <div class="container">
     <div class="box">Liksva-Owner</div>
     <div class="box">Happy</div>
@@ -79,28 +88,17 @@
     <div class="box">Mr.Megalicous</div>
     <div class="box">Reaper</div>
     <div class="box">Ziggit</div>
-  </div>
-
-  <!-- Volume Control Box -->
-  <div class="volume-box">
-    <p>🎵 Volume Control</p>
-    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+  <div class="box">ScamWize</div>
   </div>
 
   <!-- Background Audio (Royalty-Free) -->
   <audio id="backgroundAudio" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_34b88fcb9a.mp3?filename=future-bass-117119.mp3" loop autoplay></audio>
 
-  <script>
-    const audio = document.getElementById("backgroundAudio");
-    const volumeSlider = document.getElementById("volume");
-
-    // Set initial volume
-    audio.volume = volumeSlider.value;
-
-    // Update volume when slider changes
-    volumeSlider.addEventListener("input", () => {
-      audio.volume = volumeSlider.value;
-    });
-  </script>
+  <!-- Footer with Discord Links -->
+  <footer>
+    <h2>Join our Discord Communities</h2>
+    <a href="https://discord.gg/9VTqzgbhe8" target="_blank">Liksva-Syndicate</a>
+    <a href="https://discord.gg/Bf47NJtarZ" target="_blank">Ikea-Gang</a>
+  </footer>
 </body>
 </html>
