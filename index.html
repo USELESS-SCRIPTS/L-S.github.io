@@ -219,6 +219,16 @@
       audio.volume = slider.value;
       audio.play();
     });
+
+        const v1Box = document.getElementById('v1');
+    v1Box.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'shibiditoilet.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
   </script>
 </body>
 </html>
+
