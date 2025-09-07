@@ -51,6 +51,20 @@
       cursor: pointer;
     }
 
+    /* Rainbow special box */
+    .rainbow-box {
+      background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+      background-size: 400% 400%;
+      animation: rainbow 8s ease infinite;
+      color: white;
+    }
+
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     /* Footer Section */
     footer {
       margin-top: 200px; /* pushes footer down so you scroll */
@@ -81,7 +95,7 @@
 <body>
   <h1>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</h1>
   <div class="container">
-    <div class="box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+    <div class="box rainbow-box">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
     <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
     <div class="box">𝙑1</div>
     <div class="box">1𝙅𝙖𝙮𝙮_</div>
